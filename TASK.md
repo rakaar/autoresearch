@@ -9,19 +9,7 @@ What is the main scientific or engineering question?
 ## 3. Objective
 What should the system try to discover, improve, explain, fit, predict, optimize, or compare?
 
-## 4. Problem type
-Choose one or more:
-- hypothesis generation
-- model comparison
-- model fitting
-- algorithm design
-- search / optimization
-- data analysis
-- mechanism explanation
-- experiment planning
-- pipeline improvement
-
-## 5. Inputs
+## 4. Inputs
 Describe the available inputs.
 Examples:
 - datasets
@@ -32,7 +20,7 @@ Examples:
 - simulations
 - benchmark tasks
 
-## 6. Expected outputs
+## 5. Expected outputs
 Describe the expected outputs.
 Examples:
 - best-performing model
@@ -44,7 +32,7 @@ Examples:
 - summary memo
 - reproducible scripts
 
-## 7. Constraints
+## 6. Constraints
 List hard constraints.
 Examples:
 - no data leakage
@@ -55,7 +43,7 @@ Examples:
 - certain folders/files are read-only
 - only approved libraries may be used
 
-## 8. Known background
+## 7. Known background
 Summarize relevant prior knowledge:
 - important literature
 - known baselines
@@ -63,7 +51,7 @@ Summarize relevant prior knowledge:
 - domain assumptions
 - known confounds
 
-## 9. Search space
+## 8. Search space
 What kinds of ideas are allowed?
 Examples:
 - model families
@@ -75,7 +63,7 @@ Examples:
 
 Also note what is out of scope.
 
-## 10. Success criteria
+## 9. Success criteria
 What counts as progress?
 Examples:
 - better held-out score
@@ -85,7 +73,7 @@ Examples:
 - clearer mechanistic explanation
 - novel but plausible hypothesis
 
-## 11. Failure criteria
+## 10. Failure criteria
 What makes a run invalid or uninteresting?
 Examples:
 - overfitting
@@ -95,23 +83,13 @@ Examples:
 - unsupported interpretation
 - metric improvement from leakage or bug
 
-## 12. Minimum artifact set for every accepted run
+## 11. Minimum artifact set for every accepted run
 Each run should ideally produce:
 - structured metrics
 - short memo
 - at least one plot or table
 - reproducible command or script reference
 
-## 13. Priority order
-Rank what matters most:
-1. correctness
-2. generalization
-3. robustness
-4. interpretability
-5. novelty
-6. simplicity
-7. runtime / cost
-
-## 14. Notes for planner and executor
+## 12. Notes for planner and executor
 Planner and executor must both read this file before starting work.
 Executor may use local judgment where the planner was underspecified, but must stay consistent with this file.

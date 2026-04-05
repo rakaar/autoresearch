@@ -1,91 +1,53 @@
 # AGENTS
 
-## Roles
+This repo is organized for iterative research runs. `TASK.md` defines the current research goal, and `EVALUATION.md` defines how each run is checked.
 
-### Planner
-The planner is responsible for:
-- reading TASK.md, EVALUATION.md, DB history, and prior run summaries
-- proposing one concrete next experiment at a time
-- avoiding repeated or near-duplicate ideas
-- deciding whether to refine, branch, or stop
-- creating a clearly scoped executor brief
-- spawning or assigning an executor agent when needed
-- passing the executor the minimum required context for the run
+The planner decides the next concrete run. The executor performs it, records the result, and leaves enough artifacts and notes for the next step.
 
-The planner must not:
-- claim a result without a recorded run
-- redefine success arbitrarily
-- ignore prior failed attempts without reason
-- create vague tasks that cannot be executed
+There is one planner agent coordinating the research loop. The planner may spawn or assign executor agents to carry out individual runs.
 
-When the planner delegates to an executor agent, it should provide at minimum:
-- TASK.md
-- EVALUATION.md
+## Planner
+The planner decides what the next run should be and makes sure it is concrete enough to execute.
+
+The planner:
+- reads `TASK.md`, `EVALUATION.md`, and prior run history
+- proposes one concrete next run at a time
+- decides whether to continue the current track, start a new track, or stop
+- writes a brief that gives the executor the required context
+
+## Executor
+The executor performs the run described by the planner and records what happened.
+
+The executor:
+- reads `TASK.md`, `EVALUATION.md`, and the planner brief
+- runs the proposed task
+- records results, artifact paths, and verdict
+- notes blockers, deviations, and next steps
+
+## Handoff
+When the planner delegates to an executor, the handoff should include:
+- `TASK.md`
+- `EVALUATION.md`
 - the current planner brief
-- relevant DB history and prior run summaries
-- branch id and parent run id if any
-- required checks, constraints, and expected artifacts
+- relevant prior runs
+- `track_id` and `parent_run_id` if any
+- required checks and expected artifacts
 
-### Executor
-The executor is responsible for:
-- reading TASK.md and the planner brief
-- implementing the proposed idea
-- instantiating the concrete evaluation procedure for the run, consistent with EVALUATION.md
-- running the experiment or analysis
-- saving artifacts
-- writing structured results back to the database
-- writing a concise explanatory memo
+## Workflow
+1. The planner reviews the current state.
+2. The planner writes one concrete brief.
+3. The executor performs the run.
+4. The executor records results.
+5. The planner decides the next step.
 
-The executor may:
-- make reasonable implementation choices that the planner did not specify
-- add defensive checks, diagnostics, and plots
-- suggest follow-up ideas in the final memo
+## Track rule
+Start a new track when the idea, assumptions, or strategy changes materially.
 
-The executor must not:
-- change the scientific goal
-- silently change the evaluation standard
-- omit failed results
-- overwrite prior accepted artifacts without explicit versioning
-
-## Global workflow
-
-1. Planner reads current state.
-2. Planner proposes one experiment brief.
-3. Planner spawns or assigns an executor agent and passes the required context.
-4. Executor performs the run.
-5. Executor evaluates the run using the shared evaluation contract.
-6. Executor writes outputs to DB in the required schema.
-7. Planner reads the DB entry and decides the next step.
-
-## Branching rules
-Create a new branch when:
-- the new idea differs materially from the parent idea
-- the new idea changes assumptions, model family, or search strategy
-- repeated refinements are no longer the best move
-
-## Stop rules
-Stop a branch when one or more hold:
-- no meaningful improvement after N attempts
-- repeated instability across seeds / subsets / runs
-- idea is redundant with an existing branch
-- performance gain is too small relative to complexity
-- result fails required sanity checks
-- evidence suggests the hypothesis is not worth further investment
-
-## Documentation rules
-Every run must leave behind:
-- structured metrics
-- status
-- artifacts
-- failure mode or success rationale
-- short next-step suggestion
-
-## Reproducibility rules
-Every accepted run should record:
-- run id
-- parent id if any
-- code version / commit hash
-- dataset version
-- random seed(s)
-- commands or script paths used
+## Reproducibility
+Each accepted run should record:
+- `run_id`
+- `track_id`
+- `parent_run_id` if any
+- code/data reference
+- commands or script paths
 - environment notes if relevant

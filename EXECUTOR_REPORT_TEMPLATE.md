@@ -2,48 +2,27 @@
 
 ## Run metadata
 - run_id:
-- branch_id:
+- track_id:
 - parent_run_id:
 - planner_brief_id:
 - date:
-- executor:
 
-## 1. Objective
-What was this run trying to test?
+## Objective
+- what this run was trying to check
 
-## 2. Implementation
-What exactly was implemented?
+## What was run
+- code, script, or procedure used
+- data, split, or subset used
+- pre-processing required
 
-## 3. Evaluation instantiation
-What exact metrics / splits / checks were used in this run?
+## Results
+- main result or metric
+- artifact paths
+- relevant figures, tables, or image files
+- deviations, blockers, or audit notes
 
-## 4. Results
-Summarize:
-- main quantitative results
-- key plots/tables
-- whether the run was valid
+## Verdict
+- invalid / failed / inconclusive / promising / accepted_baseline / accepted_candidate
 
-## 5. Interpretation
-Why did this likely work, fail, or remain inconclusive?
-
-## 6. Failure modes / caveats
-What should the planner be careful about?
-
-## 7. Verdict
-Choose one:
-- invalid
-- failed
-- weak_negative
-- inconclusive
-- promising
-- strong_positive
-- accepted_baseline
-- accepted_candidate
-
-## 8. Suggested next steps
-List 1–3 concrete follow-ups.
-
-## 9. Artifact list
-- ...
-- ...
-- ...
+## Next step
+- 1 to 3 concrete follow-ups
