@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650" fill="none">
+  <rect width="1100" height="650" fill="white"/>
+
+  <defs>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7f7f7f"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#bfe8c7"/>
+    </marker>
+    <style>
+      .label { font: 20px "Comic Sans MS", "Trebuchet MS", sans-serif; fill: #7f7f7f; }
+      .boxtext { font: 22px "Comic Sans MS", "Trebuchet MS", sans-serif; fill: #8bc89b; }
+      .small { font: 18px "Comic Sans MS", "Trebuchet MS", sans-serif; fill: #7f7f7f; }
+      .greenstroke { stroke: #bfe8c7; stroke-width: 3; fill: none; }
+      .greenbox { stroke: #8bc89b; stroke-width: 2; fill: none; }
+      .grayline { stroke: #7f7f7f; stroke-width: 2; fill: none; marker-end: url(#arrow-gray); }
+      .greenline { stroke: #bfe8c7; stroke-width: 5; fill: none; marker-end: url(#arrow-green); }
+    </style>
+  </defs>
+
+  <text x="70" y="265" class="label">TASK.md</text>
+  <text x="275" y="145" class="label">EVALUATION.md</text>
+  <text x="420" y="425" class="small">Current database of</text>
+  <text x="425" y="455" class="small">tried attempts</text>
+
+  <rect x="300" y="220" rx="24" ry="24" width="170" height="110" class="greenbox"/>
+  <text x="338" y="286" class="boxtext">Planner</text>
+
+  <rect x="690" y="95" rx="18" ry="18" width="150" height="65" class="greenbox"/>
+  <text x="742" y="134" class="boxtext">Executor 1</text>
+
+  <rect x="730" y="245" rx="18" ry="18" width="150" height="65" class="greenbox"/>
+  <text x="782" y="284" class="boxtext">Executor 2</text>
+
+  <rect x="730" y="385" rx="18" ry="18" width="150" height="65" class="greenbox"/>
+  <text x="782" y="424" class="boxtext">Executor 3</text>
+
+  <ellipse cx="415" cy="575" rx="50" ry="16" class="greenstroke"/>
+  <ellipse cx="415" cy="605" rx="50" ry="16" class="greenstroke"/>
+  <ellipse cx="415" cy="635" rx="50" ry="16" class="greenstroke"/>
+  <line x1="365" y1="575" x2="365" y2="635" class="greenstroke"/>
+  <line x1="465" y1="575" x2="465" y2="635" class="greenstroke"/>
+
+  <path d="M 100 175 L 250 305" class="grayline"/>
+  <path d="M 230 55 L 320 215" class="grayline"/>
+  <path d="M 385 505 L 385 335" class="grayline"/>
+
+  <path d="M 470 250 L 610 140" class="grayline"/>
+  <path d="M 470 275 L 660 278" class="grayline"/>
+  <path d="M 470 292 L 650 405" class="grayline"/>
+
+  <path d="M 880 92 C 930 92, 930 195, 910 250 C 895 290, 895 360, 910 410 C 925 455, 925 520, 870 560" class="greenline"/>
+  <path d="M 980 155 C 1070 180, 1080 355, 1010 450 C 930 560, 690 580, 495 602" class="greenline"/>
+</svg>
